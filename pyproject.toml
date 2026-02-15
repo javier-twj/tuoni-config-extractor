@@ -1,0 +1,29 @@
+[project]
+name = "tuoni-config-extractor"
+version = "1.0.0"
+description = "Tuoni C2 Config Extractor: Decrypt and parse embedded TLV configuration from Tuoni agent PE binaries"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pefile",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "ruff>=0.15.1",
+    "types-pefile>=2023.2.7.post0",
+]
+
+[project.scripts]
+tuoni-extract = "tuoni_config_extractor.cli:main"
+
+[tool.mypy]
+strict = true
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
